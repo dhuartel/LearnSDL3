@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Animation.h"
 #include "Globals.h"
+#include <vector>
 
 struct SDL_Texture;
 

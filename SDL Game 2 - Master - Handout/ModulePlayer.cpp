@@ -4,6 +4,7 @@
 #include "ModuleInput.h"
 #include "ModuleRender.h"
 #include "ModuleTextures.h"
+#include "ModuleParticle.h"
 #include "SDL/include/SDL.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -77,6 +78,18 @@ update_status ModulePlayer::Update()
 	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT){
 		position.x++;
 		App->renderer->Blit(graphics, position.x, position.y - (forward.GetCurrentFrame()).h, &(forward.GetCurrentFrame()), 0.75f); // ryu animation
+	}
+	else if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN){
+		particle aux;
+		aux.position.x = position.x + 40;
+		aux.position.y = position.y - 75;
+		aux.anim.frames.push_back({ 493, 1563, 43, 32 });
+		aux.anim.frames.push_back({ 550, 1565, 56, 28 });
+		aux.anim.speed = 0.1f;
+		aux.tex = graphics;
+		aux.speed.x = 3;
+		aux.speed.y = 0;
+		App->particles->CreateParticle(aux);
 	}
 	else
 		App->renderer->Blit(graphics, position.x, position.y - (idle.GetCurrentFrame()).h, &(idle.GetCurrentFrame()), 0.75f); // ryu animation

@@ -24,7 +24,7 @@ public:
 	Animation idle;
 	Animation backward;
 	Animation forward;
-	iPoint position;
+	fPoint position;
 };
 
 #endif // __MODULEPLAYER_H__

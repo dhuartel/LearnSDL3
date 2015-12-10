@@ -2,10 +2,20 @@
 #define __GLOBALS_H__
 
 #include "SDL/include/SDL_rect.h"
+#include "Point.h"
+#include "Animation.h"
+struct SDL_Texture;
 
 #define LOG(format, ...) log(__FILE__, __LINE__, format, __VA_ARGS__);
 
 void log(const char file[], int line, const char* format, ...);
+
+typedef struct {
+	fPoint position;
+	Animation anim;
+	SDL_Texture* tex;
+	fPoint speed;
+} particle;
 
 enum update_status
 {

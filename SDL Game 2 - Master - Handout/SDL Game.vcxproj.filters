@@ -64,10 +64,10 @@
     <ClInclude Include="Particle.h">
       <Filter>Game Modules</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleCollision.h">
-      <Filter>Game Modules</Filter>
-    </ClInclude>
     <ClInclude Include="Collider.h">
+      <Filter>Core Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCollision.h">
       <Filter>Game Modules</Filter>
     </ClInclude>
   </ItemGroup>
@@ -114,10 +114,10 @@
     <ClCompile Include="Particle.cpp">
       <Filter>Game Modules</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleCollision.cpp">
-      <Filter>Game Modules</Filter>
-    </ClCompile>
     <ClCompile Include="Collider.cpp">
+      <Filter>Core Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCollision.cpp">
       <Filter>Game Modules</Filter>
     </ClCompile>
   </ItemGroup>

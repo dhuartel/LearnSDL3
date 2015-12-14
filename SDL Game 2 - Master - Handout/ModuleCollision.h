@@ -10,12 +10,12 @@ class Collider;
 class ModuleCollision : public Module
 {
 public:
-	ModuleCollision();
-	~ModuleCollision();
+	//ModuleCollision();
+	//~ModuleCollision();
 
-	update_status PreUpdate();
+	/*update_status PreUpdate();
 	update_status Update();
-	void CreateCollider(SDL_Rect,Module*);
+	void CreateCollider(SDL_Rect,Module*);*/
 
 
 };

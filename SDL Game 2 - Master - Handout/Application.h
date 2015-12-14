@@ -15,6 +15,7 @@ class ModulePlayer;
 class ModuleSceneKen;
 class ModuleSceneHonda;
 class ModuleParticle;
+class ModuleCollision;
 
 class Application
 {
@@ -38,6 +39,7 @@ public:
 	ModuleParticle* particles;
 	ModuleSceneKen* scene_ken;
 	ModuleSceneHonda* scene_honda;
+	ModuleCollision* collisions;
 
 private:
 

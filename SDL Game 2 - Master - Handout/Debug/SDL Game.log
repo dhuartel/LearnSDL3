@@ -1,16 +1,19 @@
-﻿Build started 10/12/2015 20:40:34.
-     1>Project "C:\Users\danielhl1\Documents\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\SDL Game.vcxproj" on node 2 (Build target(s)).
+﻿Build started 14/12/2015 16:32:26.
+     1>Project "E:\Documentos\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\SDL Game.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ModulePlayer.cpp
-         ModulePlayer.cpp
-     1>c:\users\danielhl1\documents\github\learnsdl3\sdl game 2 - master - handout\moduleplayer.cpp(76): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\danielhl1\documents\github\learnsdl3\sdl game 2 - master - handout\moduleplayer.cpp(80): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\danielhl1\documents\github\learnsdl3\sdl game 2 - master - handout\moduleplayer.cpp(95): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Application.cpp ModuleCollision.cpp
+         ModuleCollision.cpp
+         Generating Code...
+         Compiling...
+         Application.cpp
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\danielhl1\Documents\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\danielhl1\Documents\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\danielhl1\Documents\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.lib" /MACHINE:X86 Debug\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Documentos\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\Documentos\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Documentos\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.lib" /MACHINE:X86 Debug\Application.obj
+         Debug\Collider.obj
          Debug\Log.obj
          Debug\Main.obj
          Debug\ModuleAudio.obj
+         Debug\ModuleCollision.obj
          Debug\ModuleFadeToBlack.obj
          Debug\ModuleInput.obj
          Debug\ModuleParticle.obj
@@ -20,9 +23,11 @@
          Debug\ModuleSceneKen.obj
          Debug\ModuleTextures.obj
          Debug\ModuleWindow.obj
-         SDL Game.vcxproj -> C:\Users\danielhl1\Documents\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.exe
-     1>Done Building Project "C:\Users\danielhl1\Documents\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\SDL Game.vcxproj" (Build target(s)).
+         Debug\Particle.obj
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+         SDL Game.vcxproj -> E:\Documentos\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\Debug\SDL Game - Master 1.exe
+     1>Done Building Project "E:\Documentos\GitHub\LearnSDL3\SDL Game 2 - Master - Handout\SDL Game.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.52
+Time Elapsed 00:00:01.00

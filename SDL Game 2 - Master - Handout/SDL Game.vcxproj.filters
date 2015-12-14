@@ -61,6 +61,15 @@
     <ClInclude Include="ModuleParticle.h">
       <Filter>Game Modules</Filter>
     </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Game Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCollision.h">
+      <Filter>Game Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Game Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -100,6 +109,15 @@
       <Filter>Game Modules</Filter>
     </ClCompile>
     <ClCompile Include="ModuleParticle.cpp">
+      <Filter>Game Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Game Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCollision.cpp">
+      <Filter>Game Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
       <Filter>Game Modules</Filter>
     </ClCompile>
   </ItemGroup>

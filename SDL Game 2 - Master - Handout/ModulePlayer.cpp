@@ -79,7 +79,10 @@ update_status ModulePlayer::Update()
 		position.x++;
 		App->renderer->Blit(graphics, position.x, position.y - (forward.GetCurrentFrame()).h, &(forward.GetCurrentFrame()), 0.75f); // ryu animation
 	}
-	else if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN){
+	else
+		App->renderer->Blit(graphics, position.x, position.y - (idle.GetCurrentFrame()).h, &(idle.GetCurrentFrame()), 0.75f); // ryu animation
+	//Fire hadouken
+	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN){
 		particle aux;
 		aux.position.x = position.x + 40;
 		aux.position.y = position.y - 75;
@@ -91,8 +94,5 @@ update_status ModulePlayer::Update()
 		aux.speed.y = 0;
 		App->particles->CreateParticle(aux);
 	}
-	else
-		App->renderer->Blit(graphics, position.x, position.y - (idle.GetCurrentFrame()).h, &(idle.GetCurrentFrame()), 0.75f); // ryu animation
-
 	return UPDATE_CONTINUE;
 }

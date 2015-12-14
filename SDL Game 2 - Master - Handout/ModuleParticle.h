@@ -5,16 +5,17 @@
 #include "Globals.h"
 
 struct SDL_Texture;
+class Particle;
 
 class ModuleParticle : public Module
 {
 public:
 	ModuleParticle();
 	~ModuleParticle();
-	list<particle> setOfParticles;
-	particle* ahora;
+	list<Particle*> setOfParticles;
 
 	//bool Start();
+	update_status PreUpdate();
 	update_status Update();
 	//bool CleanUp();
 	void CreateParticle(particle);

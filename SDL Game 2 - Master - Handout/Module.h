@@ -1,6 +1,9 @@
 #ifndef __MODULE_H__
 #define __MODULE_H__
 
+//Really strange now i have to add this include
+#include "Globals.h"
+
 class Application;
 
 class Module

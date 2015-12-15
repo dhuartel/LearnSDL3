@@ -3,14 +3,14 @@
 
 #include "Globals.h"
 
-class module;
+class Module;
 
 class Collider{
 public:
-	Collider(SDL_Rect,module*);
+	Collider(SDL_Rect,Module*);
 	~Collider();
 public:
 	SDL_Rect collisionBox;
-	module* mod=nullptr;
+	Module* mod=nullptr;
 };
 #endif //__COLLIDER_H__

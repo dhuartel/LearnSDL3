@@ -3,6 +3,7 @@
 
 #include "Module.h"
 #include "Globals.h"
+#include <list>
 
 struct SDL_Texture;
 class Collider;
@@ -12,10 +13,11 @@ class ModuleCollision : public Module
 public:
 	ModuleCollision();
 	~ModuleCollision();
+	list<Collider*> setOfColliders;
 
 	update_status PreUpdate();
 	update_status Update();
-	void CreateCollider(SDL_Rect,Module*);
+	void CreateCollider(SDL_Rect, Module*);
 
 
 };

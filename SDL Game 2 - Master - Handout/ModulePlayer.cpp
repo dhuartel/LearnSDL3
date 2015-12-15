@@ -6,6 +6,7 @@
 #include "ModuleTextures.h"
 #include "ModuleParticle.h"
 #include "SDL/include/SDL.h"
+#include "ModuleCollision.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
 ModulePlayer::ModulePlayer(bool start_enabled) : Module(start_enabled)
@@ -50,8 +51,6 @@ bool ModulePlayer::Start()
 {
 	LOG("Loading player");
 
-	graphics = App->textures->Load("ryu4.png"); // arcade version
-
 	return true;
 }
 
@@ -65,6 +64,16 @@ bool ModulePlayer::CleanUp()
 	return true;
 }
 
+update_status ModulePlayer::PreUpdate(){
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT){
+		position.x--;
+	}
+	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT){
+		position.x++;
+	}
+	return UPDATE_CONTINUE;
+}
+
 // Update
 update_status ModulePlayer::Update()
 {
@@ -72,11 +81,9 @@ update_status ModulePlayer::Update()
 	// make sure to detect player movement and change its
 	// position while cycling the animation(check Animation.h)
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT){
-		position.x--;
 		App->renderer->Blit(graphics, position.x, position.y - (backward.GetCurrentFrame()).h, &(backward.GetCurrentFrame()), 0.75f); // ryu animation
 	}
 	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT){
-		position.x++;
 		App->renderer->Blit(graphics, position.x, position.y - (forward.GetCurrentFrame()).h, &(forward.GetCurrentFrame()), 0.75f); // ryu animation
 	}
 	else
@@ -94,5 +101,15 @@ update_status ModulePlayer::Update()
 		aux.speed.y = 0;
 		App->particles->CreateParticle(aux);
 	}
+
+	graphics = App->textures->Load("ryu4.png"); // arcade version
+	SDL_Rect aux;
+	aux.x = position.x*SCREEN_SIZE;
+	aux.y = (position.y - 90)*SCREEN_SIZE;
+	aux.w = 60 * SCREEN_SIZE;
+	aux.h = 90 * SCREEN_SIZE;
+	App->collisions->CreateCollider(aux, this);
+
 	return UPDATE_CONTINUE;
 }
+

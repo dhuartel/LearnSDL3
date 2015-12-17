@@ -19,6 +19,7 @@ public:
 	bool CleanUp();
 
 	bool Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed = 1.0f);
+	void DrawRect(SDL_Rect/*,float*/);
 
 public:
 	SDL_Renderer* renderer = nullptr;

@@ -116,3 +116,12 @@ bool ModuleRender::Blit(SDL_Texture* texture, int x, int y, SDL_Rect* section, f
 
 	return ret;
 }
+
+void ModuleRender::DrawRect(SDL_Rect collider/*,float speed*/){
+	SDL_Rect aux;
+	aux.x = camera.x + collider.x*SCREEN_SIZE;
+	aux.y = camera.y + collider.y*SCREEN_SIZE;
+	aux.w = collider.w*SCREEN_SIZE;
+	aux.h = collider.h*SCREEN_SIZE;
+	SDL_RenderFillRect(renderer, &aux);
+}

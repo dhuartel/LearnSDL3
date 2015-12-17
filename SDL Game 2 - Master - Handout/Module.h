@@ -14,7 +14,7 @@ public:
 	Module(bool active = true) : active(active)
 	{}
 
-	~Module()
+	virtual ~Module()
 	{}
 
 	bool IsEnabled() const

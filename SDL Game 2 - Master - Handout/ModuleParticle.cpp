@@ -19,10 +19,10 @@ ModuleParticle::~ModuleParticle(){
 void ModuleParticle::CreateParticle(particle newParticle){
 	setOfParticles.push_back(new Particle(newParticle, this));
 	SDL_Rect aux;
-	aux.x = newParticle.position.x*SCREEN_SIZE;
-	aux.y = newParticle.position.y*SCREEN_SIZE;
-	aux.w = newParticle.anim.frames[0].w * SCREEN_SIZE;
-	aux.h = newParticle.anim.frames[0].h * SCREEN_SIZE;
+	aux.x = newParticle.position.x;
+	aux.y = newParticle.position.y;
+	aux.w = newParticle.anim.frames[0].w;
+	aux.h = newParticle.anim.frames[0].h;
 	collidersOfParticles.push_back(App->collisions->CreateCollider(aux, this,PARTICLE));
 }
 
@@ -48,13 +48,13 @@ update_status ModuleParticle::Update(){
 	list<Particle*>::iterator it;
 	list<Collider*>::iterator it2=collidersOfParticles.begin();
 	for (it = setOfParticles.begin(), it2 = collidersOfParticles.begin(); it != setOfParticles.end(); ++it,++it2){
-		App->renderer->Blit((*it)->part.tex, (*it)->part.position.x, (*it)->part.position.y, &((*it)->part.anim.GetCurrentFrame()), 0.75f);
+		App->renderer->Blit((*it)->part.tex, (*it)->part.position.x, (*it)->part.position.y, &((*it)->part.anim.GetCurrentFrame()));
 		(*it)->part.position.x += (*it)->part.speed.x;
 		(*it)->part.position.y += (*it)->part.speed.y;
-		(*it2)->collisionBox.x = (*it)->part.position.x*SCREEN_SIZE;
-		(*it2)->collisionBox.y = (*it)->part.position.y*SCREEN_SIZE;
-		(*it2)->collisionBox.w = (*it)->part.anim.GetCurrentFrame().w*SCREEN_SIZE;
-		(*it2)->collisionBox.h = (*it)->part.anim.GetCurrentFrame().h*SCREEN_SIZE;
+		(*it2)->collisionBox.x = (*it)->part.position.x;
+		(*it2)->collisionBox.y = (*it)->part.position.y;
+		(*it2)->collisionBox.w = (*it)->part.anim.GetCurrentFrame().w;
+		(*it2)->collisionBox.h = (*it)->part.anim.GetCurrentFrame().h;
 	}
 	return UPDATE_CONTINUE;
 }

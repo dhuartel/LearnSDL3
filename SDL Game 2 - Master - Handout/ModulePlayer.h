@@ -29,6 +29,7 @@ public:
 	Animation forward;
 	fPoint position;
 	Collider* myCollider;
+	bool colliding=false;
 };
 
 #endif // __MODULEPLAYER_H__

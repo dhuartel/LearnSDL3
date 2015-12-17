@@ -61,10 +61,10 @@ bool ModulePlayer::Start()
 	graphics = App->textures->Load("ryu4.png"); // arcade version
 
 	SDL_Rect aux;
-	aux.x = position.x*SCREEN_SIZE;
-	aux.y = (position.y - 90)*SCREEN_SIZE;
-	aux.w = 60 * SCREEN_SIZE;
-	aux.h = 90 * SCREEN_SIZE;
+	aux.x = position.x;
+	aux.y = (position.y - idle.frames[0].h);
+	aux.w = 60;
+	aux.h = 90;
 	myCollider=App->collisions->CreateCollider(aux, this,PLAYER);
 	return true;
 }
@@ -96,13 +96,13 @@ update_status ModulePlayer::Update()
 	// make sure to detect player movement and change its
 	// position while cycling the animation(check Animation.h)
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT){
-		App->renderer->Blit(graphics, position.x, position.y - (backward.GetCurrentFrame()).h, &(backward.GetCurrentFrame()), 0.75f); // ryu animation
+		App->renderer->Blit(graphics, position.x, position.y - (backward.GetCurrentFrame()).h, &(backward.GetCurrentFrame()) ); // ryu animation
 	}
 	else if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT){
-		App->renderer->Blit(graphics, position.x, position.y - (forward.GetCurrentFrame()).h, &(forward.GetCurrentFrame()), 0.75f); // ryu animation
+		App->renderer->Blit(graphics, position.x, position.y - (forward.GetCurrentFrame()).h, &(forward.GetCurrentFrame()) ); // ryu animation
 	}
 	else
-		App->renderer->Blit(graphics, position.x, position.y - (idle.GetCurrentFrame()).h, &(idle.GetCurrentFrame()), 0.75f); // ryu animation
+		App->renderer->Blit(graphics, position.x, position.y - (idle.GetCurrentFrame()).h, &(idle.GetCurrentFrame())); // ryu animation
 	//Fire hadouken
 	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN){
 		particle aux;
@@ -116,8 +116,8 @@ update_status ModulePlayer::Update()
 		aux.speed.y = 0;
 		App->particles->CreateParticle(aux);
 	}
-	myCollider->collisionBox.x = position.x*SCREEN_SIZE;
-	myCollider->collisionBox.y = (position.y - 90)*SCREEN_SIZE;
+	myCollider->collisionBox.x = position.x;
+	myCollider->collisionBox.y = (position.y - 90);
 	return UPDATE_CONTINUE;
 }
 

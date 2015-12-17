@@ -19,7 +19,7 @@ public:
 	update_status PreUpdate();
 	update_status Update();
 	Collider* CreateCollider(SDL_Rect, Module*, colliderType);
-
+	bool DetectCollision(SDL_Rect, SDL_Rect);
 
 };
 

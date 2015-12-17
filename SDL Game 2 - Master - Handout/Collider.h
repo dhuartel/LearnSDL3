@@ -11,6 +11,13 @@ enum colliderType{
 	TERRAIN
 };
 
+enum collidingStatus{
+	OUT=1,
+	ENTERING,
+	IN,
+	EXITING
+};
+
 class Collider{
 public:
 	Collider(SDL_Rect,Module*,colliderType);
@@ -21,5 +28,6 @@ public:
 	Module* mod=nullptr;
 	bool flag;
 	colliderType type;
+	collidingStatus status = OUT;
 };
 #endif //__COLLIDER_H__

@@ -1,0 +1,3 @@
+delete en preupdate e inout
+update dibujo y movimiento
+postupdate pintar debug y demas cosas especialicas

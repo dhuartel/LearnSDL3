@@ -7,17 +7,19 @@
 #include "Point.h"
 
 struct SDL_Texture;
+class Collider;
 
 class ModulePlayer : public Module
 {
 public:
-	ModulePlayer(bool start_enabled = true);
+	ModulePlayer(bool start_enabled = true,int player=1);
 	~ModulePlayer();
 
 	bool Start();
 	update_status PreUpdate();
 	update_status Update();
 	bool CleanUp();
+	void OnCollision(Collider*,Collider*);
 
 public:
 
@@ -26,6 +28,7 @@ public:
 	Animation backward;
 	Animation forward;
 	fPoint position;
+	Collider* myCollider;
 };
 
 #endif // __MODULEPLAYER_H__

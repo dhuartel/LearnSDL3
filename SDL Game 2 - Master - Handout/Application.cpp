@@ -27,6 +27,7 @@ Application::Application()
 	modules.push_back(scene_ken = new ModuleSceneKen(false));
 	modules.push_back(scene_honda = new ModuleSceneHonda(false));
 	modules.push_back(player = new ModulePlayer(false));
+	modules.push_back(player2 = new ModulePlayer(false,2));
 	modules.push_back(particles = new ModuleParticle());
 	modules.push_back(fade = new ModuleFadeToBlack());
 	modules.push_back(collisions = new ModuleCollision());

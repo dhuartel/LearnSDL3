@@ -7,12 +7,19 @@
 #include "ModuleParticle.h"
 #include "SDL/include/SDL.h"
 #include "ModuleCollision.h"
+#include "Collider.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
-ModulePlayer::ModulePlayer(bool start_enabled) : Module(start_enabled)
+ModulePlayer::ModulePlayer(bool start_enabled,int player) : Module(start_enabled)
 {
-	position.x = 100;
-	position.y = 216;
+	if (player == 1){
+		position.x = 100;
+		position.y = 216;
+	}
+	if (player == 2){
+		position.x = 300;
+		position.y = 216;
+	}
 
 	// idle animation (arcade sprite sheet)
 	idle.frames.push_back({7, 14, 60, 90});
@@ -44,13 +51,21 @@ ModulePlayer::ModulePlayer(bool start_enabled) : Module(start_enabled)
 ModulePlayer::~ModulePlayer()
 {
 	// Homework : check for memory leaks
+	RELEASE(myCollider);
 }
 
 // Load assets
 bool ModulePlayer::Start()
 {
 	LOG("Loading player");
+	graphics = App->textures->Load("ryu4.png"); // arcade version
 
+	SDL_Rect aux;
+	aux.x = position.x*SCREEN_SIZE;
+	aux.y = (position.y - 90)*SCREEN_SIZE;
+	aux.w = 60 * SCREEN_SIZE;
+	aux.h = 90 * SCREEN_SIZE;
+	myCollider=App->collisions->CreateCollider(aux, this,PLAYER);
 	return true;
 }
 
@@ -91,7 +106,7 @@ update_status ModulePlayer::Update()
 	//Fire hadouken
 	if (App->input->GetKey(SDL_SCANCODE_F) == KEY_DOWN){
 		particle aux;
-		aux.position.x = position.x + 40;
+		aux.position.x = position.x + 61;
 		aux.position.y = position.y - 75;
 		aux.anim.frames.push_back({ 493, 1563, 43, 32 });
 		aux.anim.frames.push_back({ 550, 1565, 56, 28 });
@@ -101,15 +116,12 @@ update_status ModulePlayer::Update()
 		aux.speed.y = 0;
 		App->particles->CreateParticle(aux);
 	}
-
-	graphics = App->textures->Load("ryu4.png"); // arcade version
-	SDL_Rect aux;
-	aux.x = position.x*SCREEN_SIZE;
-	aux.y = (position.y - 90)*SCREEN_SIZE;
-	aux.w = 60 * SCREEN_SIZE;
-	aux.h = 90 * SCREEN_SIZE;
-	App->collisions->CreateCollider(aux, this);
-
+	myCollider->collisionBox.x = position.x*SCREEN_SIZE;
+	myCollider->collisionBox.y = (position.y - 90)*SCREEN_SIZE;
 	return UPDATE_CONTINUE;
+}
+
+void ModulePlayer::OnCollision(Collider* a,Collider* b){
+	LOG("M'an daoooo");
 }
 

@@ -8,6 +8,8 @@
 #include "ModuleAudio.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleSceneHonda.h"
+#include "ModuleCollision.h"
+#include "Collider.h"
 #include "SDL/include/SDL.h"
 
 // Reference at https://www.youtube.com/watch?v=OEhmUuehGOA
@@ -59,8 +61,15 @@ bool ModuleSceneKen::Start()
 
 	// TODO 7: Enable the player module
 	App->player->Enable();
+	App->player2->Enable();
 	// TODO 0: trigger background music
 	App->audio->PlayMusic("ken.ogg");
+	SDL_Rect aux;
+	aux.x = 0;
+	aux.y = 0;
+	aux.w = 20;
+	aux.h = 144;
+	App->collisions->CreateCollider(aux, this, PARTICLE);
 	return true;
 }
 
@@ -71,6 +80,7 @@ bool ModuleSceneKen::CleanUp()
 
 	App->textures->Unload(graphics);
 	App->player->Disable();
+	App->player2->Disable();
 	
 	return true;
 }

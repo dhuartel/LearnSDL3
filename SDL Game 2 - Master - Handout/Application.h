@@ -36,6 +36,7 @@ public:
 	ModuleAudio* audio;
 	ModuleFadeToBlack* fade;
 	ModulePlayer* player;
+	ModulePlayer* player2;
 	ModuleParticle* particles;
 	ModuleSceneKen* scene_ken;
 	ModuleSceneHonda* scene_honda;

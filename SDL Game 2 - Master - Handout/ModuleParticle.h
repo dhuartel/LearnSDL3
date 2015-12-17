@@ -6,6 +6,7 @@
 
 struct SDL_Texture;
 class Particle;
+class Collider;
 
 class ModuleParticle : public Module
 {
@@ -13,14 +14,14 @@ public:
 	ModuleParticle();
 	~ModuleParticle();
 	list<Particle*> setOfParticles;
+	list<Collider*> collidersOfParticles;
 
 	//bool Start();
 	update_status PreUpdate();
 	update_status Update();
 	//bool CleanUp();
 	void CreateParticle(particle);
-
-public:
+	void OnCollision(Collider*,Collider*);
 
 };
 

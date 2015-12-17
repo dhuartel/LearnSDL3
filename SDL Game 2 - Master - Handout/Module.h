@@ -5,6 +5,7 @@
 #include "Globals.h"
 
 class Application;
+class Collider;
 
 class Module
 {
@@ -65,6 +66,9 @@ public:
 	virtual bool CleanUp() 
 	{ 
 		return true; 
+	}
+	virtual void OnCollision(Collider* a,Collider* b){
+
 	}
 
 private:

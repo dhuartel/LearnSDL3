@@ -5,12 +5,21 @@
 
 class Module;
 
+enum colliderType{
+	PLAYER=1,
+	PARTICLE,
+	TERRAIN
+};
+
 class Collider{
 public:
-	Collider(SDL_Rect,Module*);
+	Collider(SDL_Rect,Module*,colliderType);
 	~Collider();
+	void flagRelease();
 public:
 	SDL_Rect collisionBox;
 	Module* mod=nullptr;
+	bool flag;
+	colliderType type;
 };
 #endif //__COLLIDER_H__

@@ -4,6 +4,7 @@
 #include "Module.h"
 #include "Globals.h"
 #include <list>
+#include "Collider.h"
 
 struct SDL_Texture;
 class Collider;
@@ -17,7 +18,7 @@ public:
 
 	update_status PreUpdate();
 	update_status Update();
-	void CreateCollider(SDL_Rect, Module*);
+	Collider* CreateCollider(SDL_Rect, Module*, colliderType);
 
 
 };
